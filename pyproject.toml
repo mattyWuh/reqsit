@@ -1,0 +1,50 @@
+[build-system]
+build-backend = "enscons.api"
+requires = ["pytoml>=0.1", "enscons>=0.23"]
+
+[tool.enscons]
+author = "matt witt"
+author_email = "matt@wittsoft.xyz"
+classifiers = [
+  "Programming Language :: Python :: 3",
+]
+description = "A CLI tool for converting requirements.txt entries to a form accepted by pyproject.toml."
+description_file = "README.md"
+install_requires = [
+  "scons>=3.0.5",
+  "pytoml>=0.1",
+  "setuptools",
+  "wheel",
+  "attrs",
+  "packaging>=20.9",
+  "editables==0.2;python_version>'3.0'",
+  "art==5.3",
+  "enscons==0.28.0",
+  "fire==0.4.0",
+  "pytest==6.2.5",
+  "pytest_mock==3.6.1",
+]
+keywords = ["packaging", "wheel"]
+license = "MIT"
+name = "reqsit"
+packages = ["reqsit"]
+src_root = "."
+url = "https://github.com/dholth/enscons"
+version = "0.28.0"
+
+[tool.enscons.entry_points]
+console_scripts = ["reqsit = reqsit.main:main"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = black, py3510, py3615, py3712, py3812, py3908, py3100
+
+[testenv]
+deps = -rrequirements.txt
+commands = pytest
+
+[testenv:black]
+deps = black
+commands = black . --check
+"""

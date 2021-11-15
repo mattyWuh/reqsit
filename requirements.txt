@@ -1,0 +1,5 @@
+art==5.3
+enscons==0.28.0
+fire==0.4.0
+pytest==6.2.5
+pytest_mock==3.6.1
