@@ -38,7 +38,15 @@ console_scripts = ["reqsit = reqsit.main:main"]
 [tool.tox]
 legacy_tox_ini = """
 [tox]
-envlist = black, py3510, py3615, py3712, py3812, py3908, py3100
+envlist = black, py3615, py3712, py3812, py3908, py3100
+
+[gh-actions]
+python =
+  3.6: py3615
+  3.7: py3712
+  3.8: py3812
+  3.9: py3908
+  3.10: py3100
 
 [testenv]
 deps = -rrequirements.txt
